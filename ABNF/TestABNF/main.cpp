@@ -12,20 +12,20 @@
 
 using namespace SoftwareAndServices::Library::ABNF;
 
-static const char						*	SimpleTestFile = "../../abnf/SimpleTest.abnf";
-static const char						*	SimpleUnResolved = "../../abnf/SimpleUnResolved.abnf";
-static const char						*	SimpleCharCase = "../../abnf/SimpleCharCase.abnf";
-static const char						*	SimpleMixed = "../../abnf/SimpleMixed.abnf";
-static const char						*	SimpleWrap = "../../abnf/SimpleWrap.abnf";
-static const char						*	SimpleOr = "../../abnf/SimpleOr.abnf";
-static const char						*	SimpleOption = "../../abnf/SimpleOption.abnf";
-static const char						*	SimpleGroup = "../../abnf/SimpleGroup.abnf";
-static const char						*	SimpleProse = "../../abnf/SimpleProse.abnf";
-static const char						*	SimpleRepeat = "../../abnf/SimpleRepeat.abnf";
-static const char						*	rfc4234 = "../../abnf/rfc4234.abnf";
+static const char						*	SimpleTestFile = "../abnf/SimpleTest.abnf";
+static const char						*	SimpleUnResolved = "../abnf/SimpleUnResolved.abnf";
+static const char						*	SimpleCharCase = "../abnf/SimpleCharCase.abnf";
+static const char						*	SimpleMixed = "../abnf/SimpleMixed.abnf";
+static const char						*	SimpleWrap = "../abnf/SimpleWrap.abnf";
+static const char						*	SimpleOr = "../abnf/SimpleOr.abnf";
+static const char						*	SimpleOption = "../abnf/SimpleOption.abnf";
+static const char						*	SimpleGroup = "../abnf/SimpleGroup.abnf";
+static const char						*	SimpleProse = "../abnf/SimpleProse.abnf";
+static const char						*	SimpleRepeat = "../abnf/SimpleRepeat.abnf";
+static const char						*	rfc4234 = "../abnf/rfc4234.abnf";
 
-static const char						*	OutFile = "../../abnf/ParsedOutput.abnf";
-static const char						*	GoldFile = "../../abnf/GoldOutput.abnf";
+static const char						*	OutFile = "./ParsedOutput.abnf";
+static const char						*	GoldFile = "../abnf/GoldOutput.abnf";
 
 static int									TestCount = 0;
 static int									ExitStatus = 0;
