@@ -1,0 +1,16 @@
+SunOS.59.sparc/ABNF.o : ABNF.cpp
+SunOS.59.sparc/ABNF.o : ABNF.hpp
+SunOS.59.sparc/ABNF.o : /Proto/SunOS.59.sparc/include/SaS/ABNF/Common.hpp
+SunOS.59.sparc/ABNF.o : Rule.hpp
+SunOS.59.sparc/ABNF.o : /Proto/SunOS.59.sparc/include/SaS/ABNF/Common.hpp
+SunOS.59.sparc/ABNF.o : /Proto/SunOS.59.sparc/include/SaS/ABNF/ABNF.hpp
+SunOS.59.sparc/ABNF.o : /Proto/SunOS.59.sparc/include/SaS/ABNF/RuleName.hpp
+SunOS.59.sparc/ABNF.o : /Proto/SunOS.59.sparc/include/SaS/ABNF/Common.hpp
+SunOS.59.sparc/ABNF.o : /Proto/SunOS.59.sparc/include/SaS/ABNF/Terminal.hpp
+SunOS.59.sparc/ABNF.o : /Proto/SunOS.59.sparc/include/SaS/ABNF/Common.hpp
+SunOS.59.sparc/ABNF.o : /Proto/SunOS.59.sparc/include/SaS/ABNF/RuleName.hpp
+SunOS.59.sparc/ABNF.o : /Proto/SunOS.59.sparc/include/SaS/ABNF/Object.hpp
+SunOS.59.sparc/ABNF.o : /Proto/SunOS.59.sparc/include/SaS/ABNF/Common.hpp
+SunOS.59.sparc/ABNF.o : /Proto/SunOS.59.sparc/include/SaS/ABNF/Object.hpp
+SunOS.59.sparc/ABNF.o : Terminal.hpp
+SunOS.59.sparc/ABNF.o : Makefile

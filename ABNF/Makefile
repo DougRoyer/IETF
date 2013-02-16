@@ -30,6 +30,7 @@ SOURCES.cpp		=	\
 SOURCES.hpp		= \
 				ABNF.hpp \
 				Comment.hpp \
+				Common.hpp \
 				Object.hpp \
 				Parser.hpp \
 				Rule.hpp \
@@ -39,7 +40,7 @@ SOURCES.hpp		= \
 
 SOURCES.c		= 
 
-SOURCES.msg		=	lib$(TARG_BINARY).msg
+#SOURCES.msg		=	lib$(TARG_BINARY).msg
 
 SOURCES.mk		=	makefile.top.gcc makefile.end
 
@@ -125,7 +126,9 @@ RPMDEVDIRS		=	\
 				$(PROTO)/share/rpm/SPEC \
 				$(PROTO)/share/rpm/tmp \
 				$(PROTO)/share/include \
-				$(PROTO)/share/include/INET \
+				$(PROTO)/share/include/SaS \
+				$(PROTO)/share/include/SaS/IETF \
+				$(PROTO)/share/include/SaS/IETF/ABNF \
 				$(PROTO)/$(PROTOSUBIDR)share/include/openssl \
 				$(PROTO)/$(PROTOSUBIDR)share/include/neon
 

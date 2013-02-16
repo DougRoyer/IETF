@@ -1,0 +1,87 @@
+MainRule = 2Rule1 / *Rule2 
+Rule1 = 2*3%d1 / %b2 %x3 
+Rule2 = "abc" / "XYZ" 
+
+MainRule = Rule1 Rule2 
+Rule1 = %d1 %b2 %x3 
+Rule2 = "abc" 
+
+MainRule = Rule1 Rule2 Rule3 
+Rule1 = %d1 %b2 %x3 
+Rule2 = "abc" 
+Rule3 =  ; ERROR: This Rule is UN-Resolved. 
+
+MainRule = RulE1 RulE2 
+RulE1 = %d1 %b2 %x3 
+RulE2 = "abc" 
+
+MainRule = Rule1 Rule2 %d4 
+Rule1 = %d1 %b2 %x3 Rule2 
+Rule2 = "abc" 
+
+MainRule = Rule1 Rule2 
+Rule1 = %d1 %b2 %x3 
+Rule2 = "abc" 
+
+MainRule = Rule1 / Rule2 
+Rule1 = %d1 / %b2 %x3 
+Rule2 = "abc" / "XYZ" 
+
+MainRule = Rule1 / Rule2 [ Rule3 ] 
+Rule1 = %d1 / %b2 %x3 
+Rule2 = "abc" 
+Rule3 = %b4 
+
+MainRule = Rule1 ( Rule2 / Rule3 ) 
+Rule1 = %d1 / ( %b2 %x3 ) 
+Rule2 = "abc" 
+Rule3 = %d4 
+
+MainRule = Rule3 Rule1 / < Rule2 > 
+Rule3 = < Rule1 > 
+Rule1 = %d1 / %b2 %x3 
+Rule2 = "abc" 
+
+rulelist = 1*( rule / ( *c-wsp c-nl ) ) 
+rule = rulename defined-as elements c-nl  continues if next line starts   with white space 
+c-wsp = WSP / ( c-nl WSP ) 
+c-nl = comment / CRLF  comment or newline 
+rulename = ALPHA *( ALPHA / 1*DIGIT / "-" ) 
+defined-as = *c-wsp ( "=" / "=/" ) *c-wsp  basic rules definition and   incremental alternatives 
+elements = alternation *c-wsp 
+ALPHA = %x415A / %x617A  A-Z / a-z 
+DIGIT = %x3039  0-9 
+alternation = concatenation *( *c-wsp "/" *c-wsp concatenation ) 
+WSP = SP / HTAB  white space 
+comment = ";" *( WSP / VCHAR ) CRLF 
+CRLF = CR LF  Internet standard newline 
+VCHAR = %x217E  visible (printing) characters 
+concatenation = repetition *( *c-wsp repetition ) 
+repetition = [ repeat ] element 
+repeat = 1*DIGIT / ( 1*DIGIT "*" 1*DIGIT ) 
+element = rulename / group / option / char-val / num-val / prose-val 
+group = "(" *c-wsp alternation *c-wsp ")" 
+option = "[" *c-wsp alternation *c-wsp "]" 
+char-val = DQUOTE *( %x2021 / %x237E) DQUOTE  quoted string of SP and VCHAR   without DQUOTE 
+num-val = "%" ( bin-val / dec-val / hex-val ) 
+prose-val = "<" *( %x203D / %x3F7E) ">"  bracketed string of SP and VCHAR   without angles  prose description, to be used as   last resort 
+DQUOTE = %x22  " (Double Quote) 
+bin-val = "b" 1*BIT [ 1*( "." 1*BIT ) / ( "-" 1*BIT ) ]  series of concatenated bit values   or single ONEOF range 
+dec-val = "d" 1*DIGIT [ 1*( "." 1*DIGIT ) / ( "-" 1*DIGIT ) ] 
+hex-val = "x" 1*HEXDIG [ 1*( "." 1*HEXDIG ) / ( "-" 1*HEXDIG ) ] 
+BIT = "0" / "1" 
+HEXDIG = 1*DIGIT / "A" / "B" / "C" / "D" / "E" / "F" 
+CHAR = %x017F  any 7-bit US-ASCII character,   excluding NUL 
+CR = %x0D  carriage return 
+LF = %x0A  linefeed 
+CTL = %x001F / %x7F  controls 
+HTAB = %x09  horizontal tab 
+LWSP = *( WSP / CRLF WSP )  linear white space (past newline) 
+OCTET = %x00FF  8 bits of data 
+SP = %x20 
+
+MainRule = Rule3 Rule1 / < Rule2 > 
+Rule3 = < Rule1 > 
+Rule1 = %d1 / %b2 %x3 
+Rule2 = "abc" 
+

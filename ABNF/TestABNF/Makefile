@@ -9,9 +9,9 @@ CCC		=	CC
 COMPILE.cc	=	CC $(CCFLAGS) $(CFLAGS) -c
 
 
-CPPFLAGS	=	-I.. -g
-CCFLAGS		=	-I.. -g
-CFLAGS		=	-I.. -g
+CPPFLAGS	=	-I.. -g -I/opt/Proto/SunOS.59.sparc/include
+CCFLAGS		=	-I.. -g -I/opt/Proto/SunOS.59.sparc/include
+CFLAGS		=	-I.. -g -I/opt/Proto/SunOS.59.sparc/include
 LDFLAGS		=	-g
 
 SOURCES.cpp	=	\
