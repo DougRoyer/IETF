@@ -6,10 +6,15 @@
 #ifndef _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_ABNF_HPP_
 #define _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_ABNF_HPP_
 
-#include <SaS/ABNF/Common.hpp>
-
+#ifdef BUILDING_LIBABNF_LIBRARY
+#include "Common.hpp"
 #include "Rule.hpp"
 #include "Terminal.hpp"
+#else
+#include <SaS/ABNF/Common.hpp>
+#include <SaS/ABNF/Rule.hpp>
+#include <SaS/ABNF/Terminal.hpp>
+#endif // BUILDING_LIBABNF_LIBRARY
 
 namespace SoftwareAndServices
 {

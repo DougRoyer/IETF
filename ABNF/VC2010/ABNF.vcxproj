@@ -99,6 +99,7 @@
   <ItemGroup>
     <ClInclude Include="..\ABNF.hpp" />
     <ClInclude Include="..\Comment.hpp" />
+    <ClInclude Include="..\Common.hpp" />
     <ClInclude Include="..\Object.hpp" />
     <ClInclude Include="..\Parser.hpp" />
     <ClInclude Include="..\Rule.hpp" />

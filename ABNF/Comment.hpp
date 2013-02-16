@@ -6,14 +6,12 @@
 #ifndef _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_COMMENT_HPP_
 #define _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_COMMENT_HPP_
 
-#include <SaS/ABNF/Common.hpp>
-
-#include <wchar.h>		// Allow both (char*) and (wchar_t*) input.
-#include <vector>
-
 #ifdef BUILDING_LIBABNF_LIBRARY
+#include "Common.hpp"
+#include "RuleName.hpp"
 #include "Object.hpp"
-#else // !BUILDING_LIBABNF_LIBRARY
+#else
+#include <SaS/ABNF/Common.hpp>
 #include <SaS/ABNF/RuleName.hpp>
 #include <SaS/ABNF/Object.hpp>
 #endif // BUILDING_LIBABNF_LIBRARY

@@ -6,10 +6,11 @@
 #ifndef _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_OBJECT_HPP_
 #define _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_OBJECT_HPP_
 
+#ifdef BUILDING_LIBABNF_LIBRARY
+#include "Common.hpp"
+#else
 #include <SaS/ABNF/Common.hpp>
-
-#include <wchar.h>		// Allow both (char*) and (wchar_t*) input.
-#include <vector>
+#endif // BUILDING_LIBABNF_LIBRARY
 
 namespace SoftwareAndServices
 {
