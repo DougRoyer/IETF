@@ -1,0 +1,44 @@
+MainRule = 2Rule1 / *Rule2 
+Rule1 = 2*3%d1 / %b2 %x3 
+Rule2 = "abc" / "XYZ" 
+
+MainRule = Rule1 Rule2 
+Rule1 = %d1 %b2 %x3 
+Rule2 = "abc" 
+
+MainRule = Rule1 Rule2 Rule3 
+Rule1 = %d1 %b2 %x3 
+Rule2 = "abc" 
+Rule3 =  ; ERROR: This Rule is UN-Resolved. 
+
+MainRule = RulE1 RulE2 
+RulE1 = %d1 %b2 %x3 
+RulE2 = "abc" 
+
+MainRule = Rule1 Rule2 %d4 
+Rule1 = %d1 %b2 %x3 Rule2 
+Rule2 = "abc" 
+
+MainRule = Rule1 Rule2 
+Rule1 = %d1 %b2 %x3 
+Rule2 = "abc" 
+
+MainRule = Rule1 / Rule2 
+Rule1 = %d1 / %b2 %x3 
+Rule2 = "abc" / "XYZ" 
+
+MainRule = Rule1 / Rule2 [ Rule3 ] 
+Rule1 = %d1 / %b2 %x3 
+Rule2 = "abc" 
+Rule3 = %b4 
+
+MainRule = Rule1 ( Rule2 / Rule3 ) 
+Rule1 = %d1 / ( %b2 %x3 ) 
+Rule2 = "abc" 
+Rule3 = %d4 
+
+MainRule = Rule3 Rule1 / < Rule2 > 
+Rule3 = < Rule1 > 
+Rule1 = %d1 / %b2 %x3 
+Rule2 = "abc" 
+

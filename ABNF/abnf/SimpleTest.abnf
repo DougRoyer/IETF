@@ -1,0 +1,7 @@
+
+MainRule = Rule1 Rule2
+
+Rule1	= %d1 %b2 %x3
+
+Rule2	= "abc"
+
