@@ -4,6 +4,8 @@
 #include "Object.hpp"
 #include "ABNF.hpp"
 
+#include <ctype.h>
+
 namespace SoftwareAndServices
 {
 	namespace Library
