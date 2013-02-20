@@ -64,7 +64,7 @@ namespace SoftwareAndServices
 				char				*	Results = NULL;
 
 				if (this->_Comment != NULL) {
-					size_t				Len = strlen(this->_Comment + 3);
+					size_t				Len = strlen(this->_Comment) + 3;
 
 					Results = new char[Len + 1];
 					strcpy(Results, "; ");
