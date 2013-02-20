@@ -121,6 +121,7 @@ namespace SoftwareAndServices
 									|| **ParseAt == '['	// Option Start
 									|| **ParseAt == ']'	// Option End
 									|| **ParseAt == '/'	// Or
+									|| **ParseAt == ';' // Comment
 									)
 								{
 									ATerminal = new Terminal();
@@ -143,8 +144,10 @@ namespace SoftwareAndServices
 								AToken = GetName(ParseAt);
 
 								if (AToken != NULL) {
-									Rule	*	TheNewRule = this->_Parent->Add(AToken);
+									Rule	*	TheNewRule = new Rule(*this->_Parent);
 
+									TheNewRule->Name(AToken);
+									TheNewRule->IsElement = true;
 									if (HasRepetition) {
 										TheNewRule->Min = MinReps;
 										TheNewRule->Max = MaxReps;

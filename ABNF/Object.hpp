@@ -154,6 +154,11 @@ namespace SoftwareAndServices
 				bool						IsResolved;
 
 				/**
+				 * True when this object is an element, and not a rule definition.
+				 */
+				bool						IsElement;
+
+				/**
 				 * Parse a repetition rule.
 				 *
 				 * @param ParseAt A pointer to the data to parse.

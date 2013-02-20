@@ -240,7 +240,7 @@ namespace SoftwareAndServices
 				Parser::Add(Rule * TheRule)
 			{
 				
-				std::vector<Rule*>::const_iterator	it;
+				/*std::vector<Rule*>::const_iterator	it;
 				Rule			*	aRule = NULL;
 
 				for (it = this->_Rules.begin(); it != this->_Rules.end(); it++) {
@@ -248,11 +248,11 @@ namespace SoftwareAndServices
 					if (aRule == TheRule) {
 						break;
 					}
-				}
+				}*/
 
-				if (it == this->_Rules.end()) {
+				//if (it == this->_Rules.end()) {
 					this->_Rules.push_back(TheRule);
-				}
+				//}
 
 				return(TheRule);
 			}
@@ -260,27 +260,11 @@ namespace SoftwareAndServices
 			EXPORT_OUT Rule	*
 				Parser::Add(char * TheRuleName)
 			{
-				Rule			*	Results = NULL;
+				Rule			*	Results = new Rule(*this);
 
-				std::vector<Rule*>::const_iterator	it;
-				Rule			*	aRule = NULL;
-
-				for (it = this->_Rules.begin(); it != this->_Rules.end(); it++) {
-					aRule = *it;
-					if (aRule != NULL) {
-						if (strcasecmp(TheRuleName, aRule->Name()) == 0) {
-							Results = aRule;
-							break;
-						}
-					}
-				}
-
-				if (Results == NULL) {
-					Results = new Rule(*this);
-					Results->Name(TheRuleName);
-					this->_Rules.push_back(Results);
-				}
-
+				Results->Name(TheRuleName);
+				this->_Rules.push_back(Results);
+				
 				return(Results);
 			}
 
