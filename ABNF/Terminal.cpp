@@ -17,6 +17,7 @@ namespace SoftwareAndServices
 				Terminal::Terminal()
 			{
 				this->_DataType = IsOr;
+				this->IsElement = true;		// Terminals are never rule definitions.
 			
 				return;
 			}
@@ -128,18 +129,18 @@ namespace SoftwareAndServices
 					this->_DataType = IsOr;
 					MoveForward(ParseAt, 1);
 					Results = true;
-
+				
 				} else if (**ParseAt == '"') {
 
 					this->_DataType = IsString;
 
-					const char		*		StopAt = (*ParseAt) + 1;
+					const char		*	StopAt = (*ParseAt) + 1;
 
 					while (*StopAt != '"') {
 						StopAt++;
 					}
 					
-					size_t					Len = StopAt - *ParseAt;
+					size_t				Len = StopAt - *ParseAt;
 
 					if (Len > 0) {
 						aValue = new char[Len + 1];
@@ -239,6 +240,7 @@ namespace SoftwareAndServices
 						tmp = strdup(">");
 						Done = true;
 						break;
+
 				};
 
 				if (Done) {

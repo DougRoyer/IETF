@@ -1,11 +1,18 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ABNF", "ABNF.vcxproj", "{14672022-B580-4048-8CC6-8B5AC92D8313}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libABNF", "ABNF.vcxproj", "{14672022-B580-4048-8CC6-8B5AC92D8313}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestABNF", "..\TestABNF\VC2010\TestABNF.vcxproj", "{957C2966-5B47-43DD-8B43-6D267BC5E50C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestLibABNF", "..\TestABNF\VC2010\TestABNF.vcxproj", "{957C2966-5B47-43DD-8B43-6D267BC5E50C}"
 	ProjectSection(ProjectDependencies) = postProject
 		{14672022-B580-4048-8CC6-8B5AC92D8313} = {14672022-B580-4048-8CC6-8B5AC92D8313}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{971D8D59-66DA-4B26-B57E-2F4EC8334ECF}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
 Global

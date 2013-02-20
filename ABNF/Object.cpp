@@ -21,6 +21,7 @@ namespace SoftwareAndServices
 				this->Max = 1;
 				this->IsResolved = false;
 				this->IsBeingResolved = false;
+				this->IsElement = false;
 
 				return;
 			}
