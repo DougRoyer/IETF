@@ -1,5 +1,11 @@
 ABNF/VC2010/Debug/*
 ABNF/VC2010/*.suo
 ABNF/VC2010/*.sdf
-
 ABNF/TestABNF/VC2010/Debug/*
+ABNF/VC2010/Debug/*
+ABNF/TestABNF/VC2010/Debug/*
+ABNF/SunOS.59.sparc/
+ABNF/TestABNF/ABNF
+ABNF/TestABNF/ParsedOutput.abnf
+ABNF/TestABNF/core
+ABNF/TestABNF/main.o
