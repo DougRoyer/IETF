@@ -47,16 +47,6 @@ namespace SoftwareAndServices
 					IsGroup,
 
 					/**
-					 * Is a Range of values. %d13-20
-					 */
-					IsRange,
-
-					/**
-					 * Is Set of values. %d13.10.9
-					 */
-					IsSet,
-
-					/**
 					 * Is Group () start (
 					 */
 					GroupStart,
@@ -157,6 +147,16 @@ namespace SoftwareAndServices
 				 * True when this object is an element, and not a rule definition.
 				 */
 				bool						IsElement;
+
+				/**
+				 * True when it is a range of 2 values.
+				 */
+				bool						IsRange;
+
+				/**
+				 * True when it is a set of values
+				 */
+				bool						IsSet;
 
 				/**
 				 * Parse a repetition rule.

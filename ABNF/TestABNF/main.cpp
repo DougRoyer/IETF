@@ -22,6 +22,9 @@ static const char						*	SimpleOption = "../abnf/SimpleOption.abnf";
 static const char						*	SimpleGroup = "../abnf/SimpleGroup.abnf";
 static const char						*	SimpleProse = "../abnf/SimpleProse.abnf";
 static const char						*	SimpleRepeat = "../abnf/SimpleRepeat.abnf";
+static const char						*	SimpleRange = "../abnf/SimpleRange.abnf";
+static const char						*	SimpleSet = "../abnf/SimpleSet.abnf";
+
 static const char						*	rfc4234 = "../abnf/rfc4234.abnf";
 
 static const char						*	OutFile = "./ParsedOutput.abnf";
@@ -41,6 +44,23 @@ static Parser							*	TheParser = NULL;
 static const std::vector<Rule*>			*	TheRules = NULL;
 static Rule								*	aRule = NULL;
 static std::vector<Rule*>::const_iterator	Rit;
+
+void
+	printErrorMessags(const std::vector<const char*> * ErrorMessages)
+{
+
+	std::vector<const char*>::const_iterator		it;
+	const char									*	aValue = NULL;
+
+	for (it = ErrorMessages->begin(); it != ErrorMessages->end(); it++) {
+		aValue = *it;
+		if (aValue != NULL) {
+			fprintf(stderr, "%s\n", aValue);
+		}
+	}
+
+	return;
+}
 
 void
 	OpenAndGetFile(const char * FileName)
@@ -125,6 +145,8 @@ int
 		}
 	}
 
+	printErrorMessags(TheParser->Errors());
+
 	delete TheParser;
 	CleanUp();
 
@@ -159,6 +181,7 @@ int
 			}
 		}
 	}
+	printErrorMessags(TheParser->Errors());
 
 	delete TheParser;
 	CleanUp();
@@ -202,6 +225,7 @@ int
 			}
 		}
 	}
+	printErrorMessags(TheParser->Errors());
 
 	delete TheParser;
 	CleanUp();
@@ -237,6 +261,7 @@ int
 			}
 		}
 	}
+	printErrorMessags(TheParser->Errors());
 
 	delete TheParser;
 	CleanUp();
@@ -272,6 +297,7 @@ int
 			}
 		}
 	}
+	printErrorMessags(TheParser->Errors());
 
 	delete TheParser;
 	CleanUp();
@@ -306,6 +332,7 @@ int
 			}
 		}
 	}
+	printErrorMessags(TheParser->Errors());
 
 	delete TheParser;
 	CleanUp();
@@ -341,6 +368,7 @@ int
 			}
 		}
 	}
+	printErrorMessags(TheParser->Errors());
 
 	delete TheParser;
 	CleanUp();
@@ -409,6 +437,7 @@ int
 			}
 		}
 	}
+	printErrorMessags(TheParser->Errors());
 
 	delete TheParser;
 	CleanUp();
@@ -447,6 +476,106 @@ int
 	delete TheParser;
 	CleanUp();
 
+	//////////////////////////////////////////////////////////////////////////////////////
+	//
+	TestCount++;
+	OpenAndGetFile(SimpleProse);
+
+	TheParser = new Parser();
+
+	TheParser->Text(aBuffer);
+	if (!TheParser->Parse()) {
+		fprintf(stderr, "Unable to parse: %s\n", SimpleProse);
+		ExitStatus++;
+	}
+
+	txt = TheParser->Print();
+
+	fprintf(OutFp, "%s\n",  txt);
+
+	TheRules = TheParser->Rules();
+	aRule = NULL;
+
+	for (Rit = TheRules->begin(); Rit != TheRules->end(); Rit++) {
+		aRule = *Rit;
+		if (aRule != NULL) {
+			if (!aRule->IsResolved) {
+				fprintf(stderr, "Rule: %s: Does not fully resolve to Terminal values.\n", aRule->Name());
+			}
+		}
+	}
+
+	delete TheParser;
+	CleanUp();
+
+	//////////////////////////////////////////////////////////////////////////////////////
+
+	//////////////////////////////////////////////////////////////////////////////////////
+	//
+	TestCount++;
+	OpenAndGetFile(SimpleRange);
+
+	TheParser = new Parser();
+
+	TheParser->Text(aBuffer);
+	if (!TheParser->Parse()) {
+		fprintf(stderr, "Unable to parse: %s\n", SimpleRange);
+		ExitStatus++;
+	}
+
+	txt = TheParser->Print();
+
+	fprintf(OutFp, "%s\n",  txt);
+
+	TheRules = TheParser->Rules();
+	aRule = NULL;
+
+	for (Rit = TheRules->begin(); Rit != TheRules->end(); Rit++) {
+		aRule = *Rit;
+		if (aRule != NULL) {
+			if (!aRule->IsResolved) {
+				fprintf(stderr, "Rule: %s: Does not fully resolve to Terminal values.\n", aRule->Name());
+			}
+		}
+	}
+	printErrorMessags(TheParser->Errors());
+
+	delete TheParser;
+	CleanUp();
+   
+	//////////////////////////////////////////////////////////////////////////////////////
+	//
+	TestCount++;
+	OpenAndGetFile(SimpleSet);
+
+	TheParser = new Parser();
+
+	TheParser->Text(aBuffer);
+	if (!TheParser->Parse()) {
+		fprintf(stderr, "Unable to parse: %s\n", SimpleSet);
+		ExitStatus++;
+	}
+
+	txt = TheParser->Print();
+
+	fprintf(OutFp, "%s\n",  txt);
+
+	TheRules = TheParser->Rules();
+	aRule = NULL;
+
+	for (Rit = TheRules->begin(); Rit != TheRules->end(); Rit++) {
+		aRule = *Rit;
+		if (aRule != NULL) {
+			if (!aRule->IsResolved) {
+				fprintf(stderr, "Rule: %s: Does not fully resolve to Terminal values.\n", aRule->Name());
+			}
+		}
+	}
+	printErrorMessags(TheParser->Errors());
+
+	delete TheParser;
+	CleanUp();
+   
 	//////////////////////////////////////////////////////////////////////////////////////
 	//
 	TestCount++;
@@ -475,66 +604,13 @@ int
 			}
 		}
 	}
+	printErrorMessags(TheParser->Errors());
 
 	delete TheParser;
 	CleanUp();
-
+   
 	//////////////////////////////////////////////////////////////////////////////////////
-
-
-	if (ExitStatus == 0) {
-		fprintf(stderr, "ALL PASS (%d/%d)\n", TestCount, TestCount);
-	} else {
-		fprintf(stderr, "FAILED %d of %d passed (%d failed)\n", TestCount - ExitStatus, TestCount, ExitStatus);
-	}
-
-	//////////////////////////////////////////////////////////////////////////////////////
-
-
-	//////////////////////////////////////////////////////////////////////////////////////
-
-	if (ExitStatus == 0) {
-		fprintf(stderr, "ALL PASS (%d/%d)\n", TestCount, TestCount);
-	} else {
-		fprintf(stderr, "FAILED %d of %d passed (%d failed)\n", TestCount - ExitStatus, TestCount, ExitStatus);
-	}
-
-	//////////////////////////////////////////////////////////////////////////////////////
-
-	//////////////////////////////////////////////////////////////////////////////////////
-	//
-	TestCount++;
-	OpenAndGetFile(SimpleProse);
-
-	TheParser = new Parser();
-
-	TheParser->Text(aBuffer);
-	if (!TheParser->Parse()) {
-		fprintf(stderr, "Unable to parse: %s\n", SimpleProse);
-		ExitStatus++;
-	}
-
-	txt = TheParser->Print();
-
-	fprintf(OutFp, "%s\n",  txt);
-
-	TheRules = TheParser->Rules();
-	aRule = NULL;
-
-	for (Rit = TheRules->begin(); Rit != TheRules->end(); Rit++) {
-		aRule = *Rit;
-		if (aRule != NULL) {
-			if (!aRule->IsResolved) {
-				fprintf(stderr, "Rule: %s: Does not fully resolve to Terminal values.\n", aRule->Name());
-			}
-		}
-	}
-
-	delete TheParser;
-	CleanUp();
-
-	//////////////////////////////////////////////////////////////////////////////////////
-
+	// 
 
 	if (ExitStatus == 0) {
 		fprintf(stderr, "ALL PASS (%d/%d)\n", TestCount, TestCount);
@@ -547,45 +623,46 @@ int
 	GoldFp = fopen(GoldFile, "rb");
 	if (GoldFp == NULL) {
 		fprintf(stderr, "ERROR: Unable to open GOLD result file: %s\n", GoldFile);
-		exit(1);
+	} else {
+
+		fclose(OutFp);					// Close the file for writing.
+		OutFp = fopen(OutFile, "rb");	// Open the same file for reading.
+		if (OutFile == NULL) {
+			fprintf(stderr, "ERROR: Unable to open result file for reading: %s\n", OutFile);
+		} else {
+	
+
+			struct stat			OutStatBuf;
+			struct stat			GoldStatBuf;
+
+			char			*	OutBuf = NULL;
+			char			*	GoldBuf = NULL;
+
+			memset(&OutStatBuf, '\0', sizeof(OutStatBuf));
+			fstat(OutFp->_file, &OutStatBuf);
+			OutBuf = new char[OutStatBuf.st_size + 1];
+			OutBuf[OutStatBuf.st_size] = '\0';
+			fread(OutBuf, 1, OutStatBuf.st_size, OutFp);
+
+			memset(&GoldStatBuf, '\0', sizeof(GoldStatBuf));
+			fstat(GoldFp->_file, &GoldStatBuf);
+			GoldBuf = new char[GoldStatBuf.st_size + 1];
+			GoldBuf[GoldStatBuf.st_size] = '\0';
+			fread(GoldBuf, 1, GoldStatBuf.st_size, GoldFp);
+
+			if (OutStatBuf.st_size != GoldStatBuf.st_size) {
+				fprintf(stderr, "ERROR: Output and Gold file sizes do not match.\n");
+			}
+
+			if (strncmp(GoldBuf, OutBuf, GoldStatBuf.st_size) != 0) {
+				fprintf(stderr, "ERROR: Output and Gold files do not match.\n");
+			}
+			//////////////////////////////////////////////////////////////////////////////////////
+
+			fclose(GoldFp);
+			fclose(OutFp);
+		}
 	}
-
-	fclose(OutFp);					// Close the file for writing.
-	OutFp = fopen(OutFile, "rb");	// Open the same file for reading.
-	if (OutFile == NULL) {
-		fprintf(stderr, "ERROR: Unable to open result file for reading: %s\n", OutFile);
-		exit(1);
-	}
-
-	struct stat			OutStatBuf;
-	struct stat			GoldStatBuf;
-
-	char			*	OutBuf = NULL;
-	char			*	GoldBuf = NULL;
-
-	memset(&OutStatBuf, '\0', sizeof(OutStatBuf));
-	fstat(OutFp->_file, &OutStatBuf);
-	OutBuf = new char[OutStatBuf.st_size + 1];
-	OutBuf[OutStatBuf.st_size] = '\0';
-	fread(OutBuf, 1, OutStatBuf.st_size, OutFp);
-
-	memset(&GoldStatBuf, '\0', sizeof(GoldStatBuf));
-	fstat(GoldFp->_file, &GoldStatBuf);
-	GoldBuf = new char[GoldStatBuf.st_size + 1];
-	GoldBuf[GoldStatBuf.st_size] = '\0';
-	fread(GoldBuf, 1, GoldStatBuf.st_size, GoldFp);
-
-	if (OutStatBuf.st_size != GoldStatBuf.st_size) {
-		fprintf(stderr, "ERROR: Output and Gold file sizes do not match.\n");
-	}
-
-	if (strncmp(GoldBuf, OutBuf, GoldStatBuf.st_size) != 0) {
-		fprintf(stderr, "ERROR: Output and Gold files do not match.\n");
-	}
-	//////////////////////////////////////////////////////////////////////////////////////
-
-	fclose(GoldFp);
-	fclose(OutFp);
 
 	return(ExitStatus);
 }

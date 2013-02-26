@@ -168,6 +168,9 @@ namespace SoftwareAndServices
 							const char			*	Dash = strchr(aValue, '-');
 
 							if (Dash != NULL) {
+								
+								this->IsRange = true;
+
 								char			*	Old = aValue;
 								size_t				Len = Dash - Old;
 								char			*	Low = new char[Len + 1];
@@ -275,6 +278,7 @@ namespace SoftwareAndServices
 					static const char				*	DecimalPrefix = "%d";
 					static const char				*	HexadecimalPrefix = "%x";
 					static const char				*	StringPrefix = "\"";
+					static const char				*	RangePrefix = "";
 
 					bool								DidDash = false;
 				
@@ -306,6 +310,7 @@ namespace SoftwareAndServices
 							case IsString:
 								Prefix = StringPrefix;
 								break;
+
 							}
 						
 							if (Offset == 0) {
@@ -314,12 +319,12 @@ namespace SoftwareAndServices
 
 							strcat(tmp, aValue);
 
-							if (this->_DataType == IsRange && !DidDash) {
+							if (this->IsRange && !DidDash) {
 								strcat(tmp, "-");
 								DidDash = true;
 							}
 
-							if (this->_DataType == IsSet) {
+							if (this-> IsSet) {
 								if (Offset < this->size()) {
 									strcat(tmp, ".");
 								}

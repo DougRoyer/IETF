@@ -49,6 +49,7 @@ namespace SoftwareAndServices
 				bool						Results = false;
 
 				if (**ParseAt != '\0') {
+				
 					SkipCRLF(ParseAt);
 
 					if (**ParseAt == ';') {
@@ -91,8 +92,7 @@ namespace SoftwareAndServices
 							}
 
 							this->Name(AToken);
-							this->_Parent->Add(this);
-
+							
 							while (**ParseAt != '\0') {
 
 								SkipWs(ParseAt);

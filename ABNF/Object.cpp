@@ -22,6 +22,8 @@ namespace SoftwareAndServices
 				this->IsResolved = false;
 				this->IsBeingResolved = false;
 				this->IsElement = false;
+				this->IsRange = false;
+				this->IsSet = false;
 
 				return;
 			}

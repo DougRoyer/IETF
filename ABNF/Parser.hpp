@@ -63,7 +63,7 @@ namespace SoftwareAndServices
 				 * If the InputText was previously set, the last call overrides any previous calls
 				 * or constructor setup of the InputText.
 				 */
-				void							Text(char * InputText);
+				void								Text(char * InputText);
 
 				/**
 				 * Set the text to be parsed.
@@ -75,7 +75,7 @@ namespace SoftwareAndServices
 				 * If the InputText was previously set, the last call overrides any previous calls
 				 * or constructor setup of the InputText.
 				 */
-				void							Text(wchar_t * InputText);
+				void								Text(wchar_t * InputText);
 
 				/**
 				 * Parse the input text.
@@ -84,14 +84,14 @@ namespace SoftwareAndServices
 				 * Returns false when the input text was not parsed successfully, or if the input
 				 * text was not set.
 				 */
-				bool							Parse();
+				bool								Parse();
 
 				/**
 				 * Get the topmost Rule for the parsed ABNF.
 				 *
 				 * @return The topmost Rule or NULL if the ABNF was not parsed successfully.
 				 */
-				Rule						*	Top() const;
+				Rule							*	Top() const;
 
 				/**
 				 * Get the ABNF as ASCII text.
@@ -101,7 +101,7 @@ namespace SoftwareAndServices
 				 * @return A string containing the ABNF in US-ASCII.
 				 * Caller must free the returned value when they are done with it.
 				 */
-				char						*	Print() const;
+				char							*	Print() const;
 
 				/**
 				 * Add a new Rule if new, or get the pointer to the rule if it already exists.
@@ -110,24 +110,19 @@ namespace SoftwareAndServices
 				 *
 				 * @return  The new Rule, or a pointer to the existing one with TheRuleName.
 				 */
-				Rule						*	Add(char * TheRuleName);
-
-				/**
-				 * Add an existing Rule to the list.
-				 * Does not add TheRule if it already exists in the list.
-				 *
-				 * @param TheRule A Rule to add to the list.
-				 *
-				 * @return  TheRule
-				 */
-				Rule						*	Add(Rule * TheRule);
+				Rule							*	Add(char * TheRuleName);
 
 				/**
 				 * Get the parsed rules.
 				 *
 				 * @return a const std::vector<Rule*> of all Rule objects.
 				 */
-				const std::vector<Rule*>	*	Rules() const;
+				const std::vector<Rule*>		*	Rules() const;
+
+				/**
+				 * Get any error messages.
+				 */
+				const std::vector<const char*>	*	Errors() const;
 
 			private:
 
@@ -139,26 +134,45 @@ namespace SoftwareAndServices
 				 * @return true when all paths lead to a terminal.
 				 */
 				bool							_Resolved(Rule * TheRule);
+				
+				/**
+				 * Mark the named rule as resolved.
+				 *
+				 * @param ResolvedRule The name of the rule that is resolved.
+				 */
+				void							_MarkResolved(const char * ResolvedRule);
+
+				/**
+				 * Find the named rule.
+				 * 
+				 * @param RuleName The rule name to find.
+				 */
+				Rule						*	_FindRule(const char * RuleName);
 
 				/**
 				 * The topmost Rule.
 				 */
-				Rule				*	_Topmost;
+				Rule						*	_Topmost;
 
 				/**
 				 * List of rules.
 				 */
-				std::vector<Rule*>		_Rules;
+				std::vector<Rule*>				_Rules;
+
+				/**
+				 * Error messages.
+				 */
+				std::vector<const char *>		_ErrorMessages;
 
 				/**
 				 * Start of parsing text.
 				 */
-				char				*	_ParseAt;
+				char				*			_ParseAt;
 
 				/**
 				 * True when we allocated _ParseAt.
 				 */
-				bool					_OurParseAt;
+				bool							_OurParseAt;
 			};
 		}
 	}

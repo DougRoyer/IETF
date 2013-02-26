@@ -1,0 +1,8 @@
+
+MainRule = Rule1 / Rule2 / Rule3
+
+Rule1	= %d1-12
+
+Rule2	= %x15-22
+
+Rule3	= %b0-1

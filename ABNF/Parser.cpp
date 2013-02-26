@@ -32,6 +32,16 @@ namespace SoftwareAndServices
 				this->_ParseAt = NULL;
 				this->_Topmost = NULL;
 				
+				std::vector<const char*>::iterator	it;
+				char							*	aValue = NULL;
+
+				for (it = this->_ErrorMessages.begin(); it != this->_ErrorMessages.end(); it++) {
+					aValue = (char*)*it;
+					if (aValue != NULL) {
+						delete aValue;
+					}
+				}
+
 				return;
 			}
 
@@ -84,6 +94,11 @@ namespace SoftwareAndServices
 
 					do {
 						while (SkipCRLF(&this->_ParseAt) != 0);
+
+						if (this->_Rules.size() == 0) {
+							this->_Rules.push_back(RuleToParse);
+						}
+
 						Worked = RuleToParse->Parse(&this->_ParseAt);
 						if (Worked) {
 							Results = true;
@@ -106,6 +121,8 @@ namespace SoftwareAndServices
 				}
 
 				if (Results) {
+					bool				SomethingFailed = false;
+
 					Results = false;
 
 					// Now go through all rules and make sure they all resolve to only terminals.
@@ -116,13 +133,14 @@ namespace SoftwareAndServices
 					for (RuleIt = this->_Rules.begin(); RuleIt != this->_Rules.end(); RuleIt++) {
 						aRule = *RuleIt;
 						if (aRule != NULL) {
-							if (!_Resolved(aRule)) {
-								break;
+							if (_Resolved(aRule)) {
+								continue;
 							}
+							SomethingFailed = true;
 						}
 					}
 				
-					if (RuleIt == this->_Rules.end()) {
+					if (!SomethingFailed) {
 						Results = true;
 					}
 				}
@@ -130,67 +148,98 @@ namespace SoftwareAndServices
 				return(Results);
 			}
 
-			bool
-				Parser::_Resolved(Rule * RuleToCheck)
+			void
+				Parser::_MarkResolved(const char * TheName)
 			{
-				bool									Results = false;
-
 				std::vector<Rule*>::const_iterator		rIt;
 				Rule								*	aRule = NULL;
 
-				const std::vector<Object*>			*	ElementList = NULL;
-				std::vector<Object*>::const_iterator	eIt;
-				Object								*	AnObject = NULL;
-
-				RuleToCheck->IsBeingResolved = true;
 				for (rIt = this->_Rules.begin(); rIt != this->_Rules.end(); rIt++) {
 					aRule = *rIt;
 					if (aRule != NULL) {
-						if (aRule != RuleToCheck) {
-							continue;
-						}
-						if (aRule->IsResolved) {
-							Results = true;
-							break;
-						}
-						if (aRule->IsTerminal()) {
+						if (strcasecmp(TheName, aRule->Name()) == 0) {
 							aRule->IsResolved = true;
-							Results = true;
-							break;
 						}
+					}
+				}
 
-						// Check its Elements
-						//
-						ElementList = aRule->Elements();
+				return;
+			}
 
-						if (ElementList->size() > 0) {
-							for (eIt = ElementList->begin(); eIt != ElementList->end(); eIt++) {
-								AnObject = *eIt;
-								if (AnObject != NULL) {
-									if (AnObject->IsResolved || AnObject->IsBeingResolved) {
-										continue;
-									}
-									if (AnObject->IsTerminal()) {
-										AnObject->IsResolved = true;
-										continue;
-									}
-									if (this->_Resolved((Rule*)AnObject)) {
-										AnObject->IsResolved = true;
-										continue;
-									}
-									break;
+			bool
+				Parser::_Resolved(Rule * RuleToCheck)
+			{
+				bool										Results = false;
+
+				if (RuleToCheck->IsResolved) {
+					Results = true;
+				
+				} else {
+
+					// Check all of its elements.
+					//
+					const std::vector<Object*>				*	Elements = RuleToCheck->Elements();
+					size_t										ErrorCount = this->_ErrorMessages.size();
+
+					if (Elements != NULL) {
+						std::vector<Object*>::const_iterator	eIt;
+						Object								*	anObject = NULL;
+						Rule								*	aRule = NULL;
+						Rule								*	FoundRule = NULL;
+						char									tmp[1024];
+
+						for (eIt = Elements->begin(); eIt != Elements->end(); eIt++) {
+							anObject = *eIt;
+							if (anObject != NULL) {
+								if (anObject->IsTerminal()) {
+									anObject->IsResolved = true;
+									continue;
 								}
+								aRule = (Rule*) anObject;
+								FoundRule = this->_FindRule(aRule->Name());
+								if (FoundRule != NULL) {
+									anObject->IsResolved = true;
+									continue;
+								}
+
+								sprintf(tmp, "Rule %s, can not find definition for: %s", RuleToCheck->Name(), aRule->Name());
+								this->_ErrorMessages.push_back(strdup(tmp));							
 							}
-						
-							if (eIt == ElementList->end()) {
-								aRule->IsResolved = true;
-								Results = true;
+						}
+					}
+
+					if (this->_ErrorMessages.size() > ErrorCount) {
+						Results = false;
+
+					} else {
+						this->_MarkResolved(RuleToCheck->Name());
+						Results = true;
+					}
+				}
+
+				return(Results);
+			}
+
+			Rule	*
+				Parser::_FindRule(const char * RuleName)
+			{
+				Rule							*	Results = NULL;
+
+				if (RuleName != NULL) {
+					std::vector<Rule*>::iterator	rIt;
+					Rule						*	aRule = NULL;
+
+					for (rIt = this->_Rules.begin(); rIt != this->_Rules.end(); rIt++) {
+						aRule = *rIt;
+						if (aRule != NULL) {
+							if (strcasecmp(aRule->Name(), RuleName) == 0) {
+								Results = aRule;
 								break;
 							}
 						}
 					}
 				}
-				
+
 				return(Results);
 			}
 
@@ -214,6 +263,9 @@ namespace SoftwareAndServices
 				for (rIt = this->_Rules.begin(); rIt != this->_Rules.end(); rIt++) {
 					aRule = *rIt;
 					if (aRule != NULL) {
+						if (aRule->IsElement) {
+							continue;
+						}
 						aValue = aRule->Print(false);
 						if (aValue != NULL) {
 							Total += strlen(aValue) + 2;
@@ -236,27 +288,6 @@ namespace SoftwareAndServices
 				return(Results);
 			}
 
-			EXPORT_OUT Rule *
-				Parser::Add(Rule * TheRule)
-			{
-				
-				/*std::vector<Rule*>::const_iterator	it;
-				Rule			*	aRule = NULL;
-
-				for (it = this->_Rules.begin(); it != this->_Rules.end(); it++) {
-					aRule = *it;
-					if (aRule == TheRule) {
-						break;
-					}
-				}*/
-
-				//if (it == this->_Rules.end()) {
-					this->_Rules.push_back(TheRule);
-				//}
-
-				return(TheRule);
-			}
-
 			EXPORT_OUT Rule	*
 				Parser::Add(char * TheRuleName)
 			{
@@ -272,6 +303,12 @@ namespace SoftwareAndServices
 				Parser::Rules() const
 			{
 				return(&this->_Rules);
+			}
+
+			EXPORT_OUT const std::vector<const char*>	*
+				Parser::Errors() const
+			{
+				return(&this->_ErrorMessages);
 			}
 
 		}
