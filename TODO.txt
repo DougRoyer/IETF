@@ -1,0 +1,9 @@
+
+This is an unoffical list of items to be done.
+
+-Fix memory leaks
+
+-Create C++ object/code generator
+
+-Create Ruby object/code generator
+
