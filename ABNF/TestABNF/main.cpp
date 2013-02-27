@@ -1,10 +1,10 @@
 
 #define BUILDING_LIBABNF_LIBRARY
 
-#include "../ABNF.hpp"
-#include "../Parser.hpp"
-#include "../Rule.hpp"
-#include "../Terminal.hpp"
+#include "../libABNF/ABNF.hpp"
+#include "../libABNF/Parser.hpp"
+#include "../libABNF/Rule.hpp"
+#include "../libABNF/Terminal.hpp"
 
 #include <stdlib.h>
 #include <stdio.h>

@@ -97,29 +97,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\ABNF.hpp" />
-    <ClInclude Include="..\Comment.hpp" />
-    <ClInclude Include="..\Common.hpp" />
-    <ClInclude Include="..\Object.hpp" />
-    <ClInclude Include="..\Parser.hpp" />
-    <ClInclude Include="..\Rule.hpp" />
-    <ClInclude Include="..\RuleName.hpp" />
-    <ClInclude Include="..\Terminal.hpp" />
+    <ClInclude Include="..\libABNF\ABNF.hpp" />
+    <ClInclude Include="..\libABNF\Comment.hpp" />
+    <ClInclude Include="..\libABNF\Common.hpp" />
+    <ClInclude Include="..\libABNF\Object.hpp" />
+    <ClInclude Include="..\libABNF\Parser.hpp" />
+    <ClInclude Include="..\libABNF\Rule.hpp" />
+    <ClInclude Include="..\libABNF\RuleName.hpp" />
+    <ClInclude Include="..\libABNF\Terminal.hpp" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\ABNF.cpp" />
-    <ClCompile Include="..\Comment.cpp" />
-    <ClCompile Include="..\Object.cpp" />
-    <ClCompile Include="..\Parser.cpp" />
-    <ClCompile Include="..\Rule.cpp" />
-    <ClCompile Include="..\RuleName.cpp" />
-    <ClCompile Include="..\Terminal.cpp" />
-    <ClCompile Include="Stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\abnf\GoldOutput.abnf" />
@@ -138,6 +125,15 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\libABNF\ABNF.cpp" />
+    <ClCompile Include="..\libABNF\Comment.cpp" />
+    <ClCompile Include="..\libABNF\Object.cpp" />
+    <ClCompile Include="..\libABNF\Parser.cpp" />
+    <ClCompile Include="..\libABNF\Rule.cpp" />
+    <ClCompile Include="..\libABNF\RuleName.cpp" />
+    <ClCompile Include="..\libABNF\Terminal.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
