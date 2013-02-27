@@ -14,6 +14,10 @@ Projects:
 
 		Other languages are planned.
 
+		Builds:
+			Visual Studio 2012
+			Solaris with GNU makefile (require some work)
+
 
 
 
