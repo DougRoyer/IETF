@@ -1,7 +1,25 @@
 
+These tools were written by Doug Royer / Doug@SoftwareAndServices.NET
+
 Tools and open source code for IETF protocols.
 
-We are not affiliated with the http://ietf.org (other than participation).
+Documentation:
+
+	Doxyfies exist in several directories.
+	Tested using Doxygen version: 1.8.3.1
+	(http://www.docygen.org)
+
+	To build the documentation:
+
+		From the command line in each Documentation directory and
+		type 'doxygen'.
+
+		It will place the html, manual pages, and xml files
+		in directories under Generated the Documentation
+		directory you ran doxygen.
+
+		Point your browser at Documentation/Generated/html/index.html
+		to see the generated documentation.
 
 Projects:
 

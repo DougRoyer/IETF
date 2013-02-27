@@ -100,6 +100,8 @@ namespace SoftwareAndServices
 				 * Checks the name up until the end of the string or until
 				 * the first space, carriage return, or newline is found.
 				 *
+				 * @param NameToCheck The name to check to see if it is a valid Rule or element name.
+				 * 					  
 				 * @param ValidNameCharacters Optional. When not null, it is a pointer
 				 * to a size_t variable that will contain the number of valid rule
 				 * name characters.
@@ -114,6 +116,8 @@ namespace SoftwareAndServices
 				 * the first space, carriage return, or newline is found.
 				 * <b>NOTE: Per RFC4234, names are case insensitive.</b>
 				 *
+				 * @param NameToCheck The name to check to see if it is a valid Rule or element name.
+				 *  				   
 				 * @param ValidNameCharacters Optional. When not null, it is a pointer
 				 * to a size_t variable that will contain the number of valid rule
 				 * name characters.

@@ -96,8 +96,6 @@ namespace SoftwareAndServices
 				/**
 				 * Get the ABNF as ASCII text.
 				 *
-				 * @param ParseAt A Pointer to where to start parsing at.
-				 *
 				 * @return A string containing the ABNF in US-ASCII.
 				 * Caller must free the returned value when they are done with it.
 				 */

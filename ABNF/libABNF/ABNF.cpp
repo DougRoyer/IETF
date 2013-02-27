@@ -57,14 +57,9 @@ namespace SoftwareAndServices
 				if (ParseAt != NULL && *ParseAt != NULL) {
 					if (**ParseAt != '\0') {
 						if (**ParseAt == '\r' && *(*(ParseAt) + 1) == '\n') {
-
-							/**
-							 * .
-							 */
 							Results += 2;
 							MoveForward(ParseAt, 2);
 						}
-					///< .
 					}
 				}
 

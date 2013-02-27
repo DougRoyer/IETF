@@ -16,6 +16,9 @@
     <Filter Include="abnf">
       <UniqueIdentifier>{c0468209-2b17-4473-b5b1-ce88594a4e98}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{e839e530-24c7-4138-8961-32e2841e8a4f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stdafx.h">
@@ -117,5 +120,10 @@
     <ClCompile Include="..\libABNF\Terminal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Documentation\rfc4234.txt">
+      <Filter>Documentation</Filter>
+    </Text>
   </ItemGroup>
 </Project>

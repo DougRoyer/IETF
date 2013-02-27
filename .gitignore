@@ -5,10 +5,15 @@ ABNF/VC2010/*.sdf
 ABNF/TestABNF/VC2010/Debug/*
 ABNF/VC2010/Debug/*
 ABNF/TestABNF/VC2010/Debug/*
-ABNF/SunOS.59.sparc/
 ABNF/TestABNF/ABNF
 ABNF/TestABNF/ParsedOutput.abnf
 ABNF/TestABNF/ParsedOutput.abnf
 ABNF/TestABNF/core
 ABNF/TestABNF/main.o
 ABNF/VC2010/.nuget
+ABNF/libABNF/SunOS.59.sparc/
+ABNF/libABNF/Documentation/Warnings.txt
+ABNF/libABNF/Documentation/libABNF.tag
+ABNF/libABNF/Documentation/Generated/xml
+ABNF/libABNF/Documentation/Generated/man
+ABNF/libABNF/Documentation/Generated/html

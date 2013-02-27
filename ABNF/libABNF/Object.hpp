@@ -1,5 +1,5 @@
 /**
- * @file GenericObject.hpp
+ * @file Object.hpp
  * This file defines a base object for Rule and Terminal objects.
  */
 
@@ -182,7 +182,7 @@ namespace SoftwareAndServices
 				 * @return The TRUE if there was a repetition rule, else FALSE.
 				 * FALSE means 1*1
 				 */
-				static bool					ParseRepetition(char ** ParseAt, size_t & min, size_t & max);
+				static bool					ParseRepetition(char ** ParseAt, size_t & Min, size_t & Max);
 
 				/**
 				 * Minimum occurs.

@@ -135,6 +135,9 @@
     <ClCompile Include="..\libABNF\RuleName.cpp" />
     <ClCompile Include="..\libABNF\Terminal.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Documentation\rfc4234.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
