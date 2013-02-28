@@ -9,7 +9,7 @@
 #ifdef BUILDING_LIBABNF_LIBRARY
 #include "Common.hpp"
 #else // !BUILDING_LIBABNF_LIBRARY
-#include <SaS/ABNF/Common.hpp>
+#include <SaS/IETF/ABNF/Common.hpp>
 #endif // BUILDING_LIBABNF_LIBRARY
 			
 namespace SoftwareAndServices

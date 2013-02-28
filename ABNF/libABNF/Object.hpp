@@ -9,7 +9,7 @@
 #ifdef BUILDING_LIBABNF_LIBRARY
 #include "Common.hpp"
 #else
-#include <SaS/ABNF/Common.hpp>
+#include <SaS/IETF/ABNF/Common.hpp>
 #endif // BUILDING_LIBABNF_LIBRARY
 
 namespace SoftwareAndServices
@@ -125,7 +125,7 @@ namespace SoftwareAndServices
 				 * Caller must free the returned value when they are done with it.
 				 * Returns NULL when the Element name has not been set.
 				 */
-				virtual char	*	Print(bool WithRepetitions) const = 0;
+				virtual char			*	Print(bool WithRepetitions) const = 0;
 
 				/**
 				 * @return true if this Object is a Terminal.

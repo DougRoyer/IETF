@@ -13,11 +13,11 @@
 #include "Terminal.hpp"
 #include "Object.hpp"
 #else // !BUILDING_LIBABNF_LIBRARY
-#include <SaS/ABNF/Common.hpp>
-#include <SaS/ABNF/ABNF.hpp>
-#include <SaS/ABNF/RuleName.hpp>
-#include <SaS/ABNF/Terminal.hpp>
-#include <SaS/ABNF/Object.hpp>
+#include <SaS/IETF/ABNF/Common.hpp>
+#include <SaS/IETF/ABNF/ABNF.hpp>
+#include <SaS/IETF/ABNF/RuleName.hpp>
+#include <SaS/IETF/ABNF/Terminal.hpp>
+#include <SaS/IETF/ABNF/Object.hpp>
 #endif // BUILDING_LIBABNF_LIBRARY
 
 namespace SoftwareAndServices
@@ -59,7 +59,7 @@ namespace SoftwareAndServices
 				 *
 				 * @return true when parsed successfully, else returns false.
 				 */
-				virtual bool			Parse(char ** ParseAt);
+				virtual bool					Parse(char ** ParseAt);
 
 				/**
 				 * Get the ABNF as ASCII text.
@@ -70,12 +70,12 @@ namespace SoftwareAndServices
 				 * Caller must free the returned value when they are done with it.
 				 * Returns NULL when the Element name has not been set.
 				 */
-				virtual char		*	Print(bool WithRepetitions) const;
+				virtual char				*	Print(bool WithRepetitions) const;
 
 				/**
 				 * @return true if this Object is a Terminal.
 				 */
-				virtual bool			IsTerminal() const;
+				virtual bool					IsTerminal() const;
 
 				/**
 				 * Get Elements.

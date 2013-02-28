@@ -11,9 +11,9 @@
 #include "Rule.hpp"
 #include "Terminal.hpp"
 #else
-#include <SaS/ABNF/Common.hpp>
-#include <SaS/ABNF/Rule.hpp>
-#include <SaS/ABNF/Terminal.hpp>
+#include <SaS/IETF/ABNF/Common.hpp>
+#include <SaS/IETF/ABNF/Rule.hpp>
+#include <SaS/IETF/ABNF/Terminal.hpp>
 #endif // BUILDING_LIBABNF_LIBRARY
 
 namespace SoftwareAndServices

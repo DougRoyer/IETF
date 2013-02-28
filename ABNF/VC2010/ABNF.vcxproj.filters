@@ -19,6 +19,9 @@
     <Filter Include="Documentation">
       <UniqueIdentifier>{e839e530-24c7-4138-8961-32e2841e8a4f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Build Files">
+      <UniqueIdentifier>{37bb4300-c1a6-4ec1-b0dd-034ce4994c07}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Stdafx.h">
@@ -91,6 +94,12 @@
     </None>
     <None Include="..\abnf\SimpleWrap.abnf">
       <Filter>abnf</Filter>
+    </None>
+    <None Include="..\libABNF\Documentation\Doxyfile">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="..\libABNF\PRE-BUILD.bat">
+      <Filter>Build Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

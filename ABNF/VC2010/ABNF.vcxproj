@@ -83,6 +83,12 @@
     <Bscmake>
       <SuppressStartupBanner>false</SuppressStartupBanner>
     </Bscmake>
+    <PreBuildEvent>
+      <Command>..\libABNF\PRE-BUILD.bat</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Copy include files to prototype directory</Message>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -121,6 +127,8 @@
     <None Include="..\abnf\SimpleTest.abnf" />
     <None Include="..\abnf\SimpleUnResolved.abnf" />
     <None Include="..\abnf\SimpleWrap.abnf" />
+    <None Include="..\libABNF\Documentation\Doxyfile" />
+    <None Include="..\libABNF\PRE-BUILD.bat" />
     <None Include="app.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -11,9 +11,9 @@
 #include "RuleName.hpp"
 #include "Object.hpp"
 #else
-#include <SaS/ABNF/Common.hpp>
-#include <SaS/ABNF/RuleName.hpp>
-#include <SaS/ABNF/Object.hpp>
+#include <SaS/IETF/ABNF/Common.hpp>
+#include <SaS/IETF/ABNF/RuleName.hpp>
+#include <SaS/IETF/ABNF/Object.hpp>
 #endif // BUILDING_LIBABNF_LIBRARY
 
 namespace SoftwareAndServices

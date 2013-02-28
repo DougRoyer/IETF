@@ -11,9 +11,9 @@
 #include "RuleName.hpp"
 #include "Object.hpp"
 #else // !BUILDING_LIBABNF_LIBRARY
-#include <SaS/ABNF/Common.hpp>
-#include <SaS/ABNF/RuleName.hpp>
-#include <SaS/ABNF/Object.hpp>
+#include <SaS/IETF/ABNF/Common.hpp>
+#include <SaS/IETF/ABNF/RuleName.hpp>
+#include <SaS/IETF/ABNF/Object.hpp>
 #endif // BUILDING_LIBABNF_LIBRARY
 
 namespace SoftwareAndServices
@@ -29,7 +29,7 @@ namespace SoftwareAndServices
 			 */
 			class EXPORT_LIBABNF Terminal
 				: public Object,
-				public std::vector<char*>	// The values.
+				  public std::vector<char*>	// The values.
 			{
 
 			public:
