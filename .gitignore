@@ -2,6 +2,7 @@ ABNF/VC2010/Debug/*
 ABNF/VC2010/*.opensdf
 ABNF/VC2010/*.suo
 ABNF/VC2010/*.sdf
+ABNF/VC2010/*.xdc
 ABNF/TestABNF/VC2010/Debug/*
 ABNF/VC2010/Debug/*
 ABNF/TestABNF/VC2010/Debug/*
@@ -14,8 +15,10 @@ ABNF/VC2010/.nuget
 ABNF/libABNF/SunOS.59.sparc/
 ABNF/libABNF/Documentation/Warnings.txt
 ABNF/libABNF/Documentation/libABNF.tag
+ABNF/libABNF/Documentation/Doxyfile.bak
 ABNF/libABNF/Documentation/Generated/xml
 ABNF/libABNF/Documentation/Generated/man
 ABNF/libABNF/Documentation/Generated/html
+ABNF/ABNFGenerate/VS2012/Debug
 ABNF/ABNFGenerate/GeneratedFiles
 Proto

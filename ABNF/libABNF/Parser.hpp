@@ -80,7 +80,7 @@ namespace SoftwareAndServices
 				/**
 				 * Parse the input text.
 				 *
-				 * @return Parse() will return true when everything was successfully parse.
+				 * @return Parse() will return true when everything was successfully parsed.
 				 * Returns false when the input text was not parsed successfully, or if the input
 				 * text was not set.
 				 */

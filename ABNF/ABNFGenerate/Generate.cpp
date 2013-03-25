@@ -1,7 +1,7 @@
 
 #include "Generate.hpp"
 
-#include "CPlusPlus.hpp"
+#include "C++/CPlusPlus.hpp"
 
 int
 	Generate()

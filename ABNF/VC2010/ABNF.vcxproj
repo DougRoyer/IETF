@@ -61,6 +61,8 @@
       <DisableSpecificWarnings>4996;4251</DisableSpecificWarnings>
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <FunctionLevelLinking>true</FunctionLevelLinking>
+      <GenerateXMLDocumentationFiles>true</GenerateXMLDocumentationFiles>
+      <XMLDocumentationFileName>$(InDir)</XMLDocumentationFileName>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

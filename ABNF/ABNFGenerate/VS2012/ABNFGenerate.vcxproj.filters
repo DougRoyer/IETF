@@ -27,7 +27,7 @@
     <ClInclude Include="..\Generate.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\CPlusPlus.hpp">
+    <ClInclude Include="..\C++\CPlusPlus.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClCompile Include="..\Generate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\CPlusPlus.cpp">
+    <ClCompile Include="..\C++\CPlusPlus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
