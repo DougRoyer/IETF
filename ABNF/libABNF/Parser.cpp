@@ -1,5 +1,9 @@
-// This is the main DLL file.
-
+/**
+ * @file Parser.cpp
+ * This file implements the ABNF Parser object.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
+ */
 #include <ctype.h>
 #include <string.h>
 #include "Parser.hpp"

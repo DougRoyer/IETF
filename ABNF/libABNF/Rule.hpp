@@ -1,6 +1,8 @@
 /**
- * @file RuleName.hpp
- * This file defines the IETF ABNF parser Rule object.
+ * @file Rule.hpp
+ * This file defines the IETF ABNF Rule object.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
  */
 
 #ifndef _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_RULE_HPP_

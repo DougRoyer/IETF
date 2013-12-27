@@ -1,4 +1,8 @@
 /**
+ * @file Object.cpp
+ * This file implements the ABNF Object object.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
  */
 
 #include "Object.hpp"

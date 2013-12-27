@@ -1,6 +1,8 @@
 /**
  * @file Object.hpp
- * This file defines a base object for Rule and Terminal objects.
+ * This file defines a base object for Object object.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
  */
 
 #ifndef _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_OBJECT_HPP_

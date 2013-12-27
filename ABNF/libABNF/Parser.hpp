@@ -1,6 +1,8 @@
 /**
- * @file ABNF.hpp
- * This file defines the IETF ABNF parser object.
+ * @file Parser.hpp
+ * This file defines the IETF ABNF Parser object.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
  */
 
 #ifndef _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_PARSER_HPP_

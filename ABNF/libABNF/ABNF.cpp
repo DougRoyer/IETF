@@ -1,22 +1,18 @@
+/**
+ * @file ABNF.cpp
+ * This implements the libABNF interface.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
+ */
 // This is the main DLL file.
 
 #include <ctype.h>
 #include <string.h>
 #include "ABNF.hpp"
 
-#ifdef WIN32
-
-/**
- * A macro that defines strcasecmp.
- *
- * @author	DouglasRoyer@gmail.com
- * @date	11 Feb 2013
- *
- * @param	a	The void to process.
- * @param	b	The void to process.
- */
+#ifdef MS_OS
 #define strcasecmp(a,b)	stricmp(a,b)
-#endif // WIN32
+#endif // MS_OS
 
 namespace SoftwareAndServices
 {

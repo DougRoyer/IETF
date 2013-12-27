@@ -1,4 +1,9 @@
-
+/**
+ * @file Generate.cpp
+ * This file implements the interface to generate code.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
+ */
 #include "Generate.hpp"
 
 #include "C++/CPlusPlus.hpp"

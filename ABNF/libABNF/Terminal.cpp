@@ -1,4 +1,8 @@
 /**
+ * @file Terminal.hpp
+ * This file implements the ABNF Terminal object.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
  */
 
 #include "ABNF.hpp"

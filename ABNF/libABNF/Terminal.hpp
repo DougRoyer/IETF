@@ -1,6 +1,8 @@
 /**
- * @file RuleName.hpp
- * This file defines the IETF ABNF parser Terminal object.
+ * @file Termainal.hpp
+ * This file defines the IETF ABNF Terminal object.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
  */
 
 #ifndef _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_TERMINAL_HPP_

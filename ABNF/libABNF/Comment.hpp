@@ -1,6 +1,8 @@
 /**
- * @file RuleName.hpp
- * This file defines the IETF ABNF parser Comment object.
+ * @file Comment.hpp
+ * This file defines the IETF ABNF Comment object.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
  */
 
 #ifndef _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_COMMENT_HPP_

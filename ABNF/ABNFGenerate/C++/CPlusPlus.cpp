@@ -1,4 +1,9 @@
-
+/**
+ * @file CPlusPlus.cpp
+ * Code that implements the C++ generator.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
+ */
 #include "CPlusPlus.hpp"
 
 static const char		*	HppFileIfDefUnique =
@@ -227,7 +232,7 @@ static void
 				fprintf(HppFile, "#include <%s.hpp>\n", LName);
 				fprintf(HppFile, "\nusing namespace SoftwareAndServices::Library::ABNF;\n\n");
 
-				fprintf(HppFile, "#ifdef WIN32\n\n");
+				fprintf(HppFile, "#ifdef MS_OS\n\n");
 
 				fprintf(HppFile, "#ifdef EXPORT_OUT\n");
 				fprintf(HppFile, "#undef EXPORT_OUT\n");
@@ -251,11 +256,11 @@ static void
 				fprintf(HppFile, "#endif // BUILDING_%s_LIBRARY\n\n", ULibName);
 
 				fprintf(HppFile, "#endif // EXPORT_%s\n", ULibName);
-				fprintf(HppFile, "#else // !WIN32\n");
+				fprintf(HppFile, "#else // !MS_OS\n");
 				fprintf(HppFile, "#define EXPORT_OUT\n");
 				fprintf(HppFile, "#define EXPORT_IN\n");
 				fprintf(HppFile, "#define EXPORT_%s\n", ULibName);
-				fprintf(HppFile, "#endif // WIN32\n\n");
+				fprintf(HppFile, "#endif // MS_OS\n\n");
 
 				if (Namespace != Empty) {
 					PrintNamespaceBegin(HppFile);

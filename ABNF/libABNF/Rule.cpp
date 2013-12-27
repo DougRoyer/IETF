@@ -1,4 +1,8 @@
 /**
+ * @file Rule.hpp
+ * This file implements the ABNF Rule object.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
  */
 
 #include "ABNF.hpp"

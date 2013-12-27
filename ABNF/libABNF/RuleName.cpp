@@ -1,7 +1,11 @@
 /**
+ * @file RuleName.hpp
+ * This file implements the ABNF RuleName object.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
  */
 
-#ifdef WIN32
+#ifdef MS_OS
 
 #ifdef EXPORT_OUT
 #undef EXPORT_OUT
@@ -22,10 +26,10 @@
 #endif // BUILDING_LIBABNF_LIBRARY
 
 #endif // EXPORT_LIBABNF
-#else // !WIN32
+#else // !MS_OS
 #define EXPORT_OUT
 #define EXPORT_IN
-#endif // WIN32
+#endif // MS_OS
 
 #include "RuleName.hpp"
 #include "ABNF.hpp"

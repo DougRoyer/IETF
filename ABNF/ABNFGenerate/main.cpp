@@ -1,4 +1,9 @@
-
+/**
+ * @file main.cpp
+ * This file describes the interface to ABNFGenerate
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
+ */
 #include "../libABNF/ABNF.hpp"
 #include "../libABNF/Comment.hpp"
 #include "../libABNF/Common.hpp"
@@ -41,7 +46,7 @@ Languages_t						SelectedLanguage = CPlusPlus_l;
 
 char						*	GenerateVersion = GENERATE_VERSION;
 
-#ifdef WIN32
+#ifdef MS_OS
 const char	*
 	basename(const char * FileWithPath)
 {
@@ -62,7 +67,7 @@ const char	*
 	return(Results);
 }
 
-#endif // WIN32
+#endif // MS_OS
 void
 	usage(const char * argv0)
 {
@@ -210,7 +215,7 @@ int
 		if (BeVerbose) {
 			fprintf(stdout, "Testing for and making if needed, directory: %s\n", OutputDir);
 		}
-#ifdef WIN32
+#ifdef MS_OS
 		_mkdir(OutputDir);
 #else
 		mkdir(OutPutDir);

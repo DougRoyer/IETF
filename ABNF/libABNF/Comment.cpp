@@ -1,5 +1,9 @@
 /**
-*/
+ * @file Comment.cpp
+ * This file implements the ABNF Comment object.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
+ */
 
 #include "ABNF.hpp"
 #include "Rule.hpp"

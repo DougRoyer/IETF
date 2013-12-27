@@ -1,4 +1,9 @@
-
+/**
+ * @file Generate.hpp
+ * This file describes the interface to generate code.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
+ */
 #ifndef __SOFTWAREANDSERVICES_LIBRARY_IETF_ABNF_GENERATE_HPP__
 #define __SOFTWAREANDSERVICES_LIBRARY_IETF_ABNF_GENERATE_HPP__
 
@@ -115,7 +120,7 @@ extern char					*	GenerateVersion;
 
 using namespace SoftwareAndServices::Library::ABNF;
 
-#ifdef WIN32
+#ifdef MS_OS
 /**
  * Get the file only part of a path.
  *

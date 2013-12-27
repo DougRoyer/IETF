@@ -1,4 +1,9 @@
-
+/**
+ * @file main.cpp
+ * This file implements the ABNF test code.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
+ */
 #define BUILDING_LIBABNF_LIBRARY
 
 #include "../libABNF/ABNF.hpp"

@@ -1,12 +1,14 @@
 /**
- * @file ABNF.hpp
- * This file defines the IETF ABNF parser object.
+ * @file Common.hpp
+ * This file defines the IETF ABNF common definitions.
+ *
+ * @author Douglas Mark Royer <DouglasRoyer@gmail.com>
  */
 
 #ifndef _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_COMMON_HPP_
 #define _DOUGLAS_MARK_ROYER_LIBRARY_LIBABNF_COMMON_HPP_
 
-#ifdef WIN32
+#ifdef MS_OS
 
 #ifdef EXPORT_OUT
 #undef EXPORT_OUT
@@ -27,18 +29,18 @@
 #endif // BUILDING_LIBABNF_LIBRARY
 
 #endif // EXPORT_LIBABNF
-#else // !WIN32
+#else // !MS_OS
 #define EXPORT_OUT
 #define EXPORT_IN
 #define EXPORT_LIBABNF
-#endif // WIN32
+#endif // MS_OS
 
 #include <wchar.h>		// Allow both (char*) and (wchar_t*) input.
 #include <vector>
 
-#ifdef WIN32
+#ifdef MS_OS
 #define strcasecmp(a,b)	stricmp(a,b)
-#endif // WIN32
+#endif // MS_OS
 
 namespace SoftwareAndServices
 {
